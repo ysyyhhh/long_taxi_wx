@@ -1,0 +1,67 @@
+{
+  "setting": {
+    "compileHotReLoad": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/send/send",
+          "pathName": "pages/send/send",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/pay/pay",
+          "pathName": "pages/pay/pay",
+          "query": "id=O-000047",
+          "scene": null
+        },
+        {
+          "name": "pages/receive/receive",
+          "pathName": "pages/receive/receive",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/open/open",
+          "pathName": "pages/open/open",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/ceshi/ceshi",
+          "pathName": "pages/ceshi/ceshi",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/receive_detail/receive_detail",
+          "pathName": "pages/receive_detail/receive_detail",
+          "query": "id=O-000001",
+          "scene": null
+        },
+        {
+          "name": "pages/getpos/getpos",
+          "pathName": "pages/getpos/getpos",
+          "query": "id=O-000001&phone=12345678911",
+          "scene": null
+        },
+        {
+          "name": "pages/zhuce/zhuce",
+          "pathName": "pages/zhuce/zhuce",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/modify/modify",
+          "pathName": "pages/modify/modify",
+          "query": "id=O-000003",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "projectname": "buujqrwlc"
+}

@@ -1,0 +1,106 @@
+<view class="page-body">
+  <view class="page-section page-section-gap">
+
+    <!-- 测试订单 有物流信息的 -->
+    <view class="order">
+      <!-- <view class="root">收件订单信息</view> -->
+      <view class="item-container">
+        <!-- <view>备注：{{item.tip}}</view> -->
+        <!-- <view>收件人电话号码：{{item.send_phone}}</view> -->
+        <view class="son">
+        <view class="rough-order-top">订单号 ：{{orderData.id}} 
+        <image src="/img/copy.png" style="height:25rpx;width:25rpx;"></image>
+        </view>
+        <view class="line"></view>
+        <view bindtap="godetail" class="rough-order" data-id="{{orderData.order_id}}" data-order = "{{orderData}}">
+
+          <view class="rough-order-lr">
+            {{orderData.startLon}}\n{{orderData.startLat}}
+          </view>
+          <view class="rough-order-m">
+            <image src="/img/arrow.png" class="arrow"></image>
+            {{orderData.status}}
+          </view>
+          <view class="rough-order-lr">
+            {{orderData.endLon}}\n{{orderData.endLat}}
+          </view>
+        </view>
+        <view class="line"></view>
+        <view class="rough-order-top">订单创建时间 : {{orderData.createdAt}}</view>
+        <!-- <text>发件地点:{{item.send_address}}</text>
+        <text>收件地点:{{item.accept_address}}</text>
+        <text>备注：{{item.note}}</text>
+        <button bindtap="godetail" type="primary" data-id="{{item.order_id}}">查看订单详情</button> -->
+      </view>
+      </view>
+    </view>
+    <!-- 测试订单 有物流信息的 -->
+    <map id="myMap" style="width: 100%; height: 100vh;overflow: hidden;" latitude="{{latitude}}"
+      longitude="{{longitude}}" markers="{{markers}}" show-location bindtap="touchMap" polyline="{{polylines}}">
+    </map>
+
+    <view class="bottom_status">
+      <view class="scroll-fullpage" bindtouchstart="scrollTouchstart" bindtouchmove="scrollTouchmove"
+        bindtouchend="scrollTouchend" style="transform:translateY(-{{100}}%);margin-top: {{margintop}}px">
+        <view class="title">
+          {{orderData.status}}
+        </view>
+        <view class="content">
+
+          <view class="detail-gap" style="height:18rpx;"></view>
+
+          <view class="detail-content">
+            <view class="detail-l">
+              <view class="img-cir" style="background-color:rgb(253,134,134);">
+                <image src="/img/car.png" style="height:90rpx;width:90rpx;"></image>
+              </view>
+
+            </view>
+            <view class="detail-r">车辆编号 : {{car==null ? '未分配车辆':car.id}}
+              <view class="copy">复制</view>
+            </view>
+          </view>
+          <view class="detail-gap">|</view>
+          <view class="detail-content">
+            <view class="detail-l">
+              <view class="img-cir" style="background-color:rgb(234,191,132);">
+                <image src="/img/time.png" style="height:90rpx;width:90rpx;"></image>
+              </view>
+            </view>
+            <view class="detail-r">预计到达 : {{arrival_time}}
+
+            </view>
+
+          </view>
+
+          <view class="detail-gap">|</view>
+          <view class="detail-content">
+            <view class="detail-l">
+              <view class="img-cir" style="background-color:rgb(102,215,195);">
+                <image src="/img/car-type.png" style="height:90rpx;width:90rpx;"></image>
+              </view>
+            </view>
+            <view class="detail-r"> 车辆类型 : {{car_type}} </view>
+          </view>
+        </view>
+
+
+      </view>
+      <view class="content-bottom">
+        <view class="line"></view>
+        <view class="bottom-menu">
+          <view class="bottom-menu-lr">
+            <view class="bottom-lr" bindtap="cancel" data-id="{{orderData.order_id}}">取消订单</view>
+          </view>
+          <view class="bottom-menu-m">|</view>
+          <view class="bottom-menu-lr" bindtap="upOrDown">
+            <view wx:if="{{orderData.status == '等待乘客上车'}}" class="bottom-lr">我已上车</view>
+            <view wx:elif="{{orderData.status == '等待乘客下车'}}" class="bottom-lr">我已下车</view>
+          </view>
+        </view>
+        <view class="gap" ></view>
+      </view>
+    </view>
+
+  </view>
+</view>

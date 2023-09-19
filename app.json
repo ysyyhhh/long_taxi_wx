@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/order/order",
+    "pages/send/send"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于定位起点" 
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "京龙启行",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#Fc0",
+    "selectedColor": "#000000",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "个人中心"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "我的订单"
+      },
+      {
+        "pagePath": "pages/send/send",
+        "text": "我要打车"
+      }
+    ],
+    "usingComponents": {
+      "customtabbar": "custom-tab-bar/index"
+    }
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,57 @@
+<view wx:if="{{userId}}" class="body">
+  <view class="type-top">
+    <view class="weui-search-bar" bindtap="search">
+      <view class="weui-search-bar__form">
+        <!-- 搜索框 -->
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="25"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="请输入订单号" />
+        </view>
+      </view>
+    </view>
+    <view class="scroll-select-top">
+      <view wx:for="{{orderTypes}}" wx:key="index" class="all-types">
+        <button class="order-type" bindtap="tapSelectType" id="{{orderTypes[index]}}"
+          style="background-color: {{selectType == orderTypes[index] ? '#6684B5' : 'white'}};"> {{orderTypes[index]}}
+        </button>
+      </view>
+    </view>
+
+  </view>
+
+  <view style="height:180rpx;"></view>
+
+
+  <view class="order" >
+    <!-- <view class="root">收件订单信息</view> -->
+    <view wx:for="{{showList}}" wx:key="item" class="item-container">
+      <!-- <view>备注：{{item.tip}}</view> -->
+      <!-- <view>收件人电话号码：{{item.send_phone}}</view> -->
+      <view class="son">
+        <view class="rough-order-top">订单号 ：{{item.id}} 
+        <image src="/img/copy.png" style="height:25rpx;width:25rpx;"></image>
+        </view>
+        <view class="line"></view>
+        <view bindtap="godetail" class="rough-order" data-id="{{item.order_id}}" data-order = "{{item}}">
+
+          <view class="rough-order-lr">
+            {{item.startLon}}\n{{item.startLat}}
+          </view>
+          <view class="rough-order-m">
+            <image src="/img/arrow.png" class="arrow"></image>
+            {{item.status}}
+          </view>
+          <view class="rough-order-lr">
+            {{item.endLon}}\n{{item.endLat}}
+          </view>
+        </view>
+        <view class="line"></view>
+        <view class="rough-order-top">订单创建时间 : {{item.createdAt}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view style="height:1200rpx;"></view>
+</view>
+
+<view wx:else class="tip">请先登录并填写正确的手机号码</view>

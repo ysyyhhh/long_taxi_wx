@@ -1,0 +1,34 @@
+<view wx:if="{{!userInfo}}" class="root">
+    <image class="loginTouxiang" src="/image/jinglong2.png" ></image>
+  <view  class = "loginBtn" bindtap="getinfo" >
+  <image class="icon" src="/image/car.png"> </image>
+  <text class="whiteFont">快捷登录</text>
+  </view>
+
+  <view class="model" catchtouchmove='preventTouchMove' wx:if='{{showModal}}'></view>
+    <view class="modalDlg" catchtouchmove='preventTouchMove' wx:if='{{showModal}}'>
+      <view class='windowRow'>
+        <text class='userTitle'>注册手机号</text>
+        <view class='back' bindtap='back'>返回</view>
+      </view>
+      <view class='wishName'>
+        <input bindinput='wish_put' auto-focus placeholder='注册请输入手机号' class='wish_put'></input>
+      </view>
+      <view class='wishbnt'> 
+        <button class='wishbnt_bt' bindtap='ok'>确定</button>
+      </view>
+    </view>
+</view>
+
+<view wx:else class="root">
+  <view class="userCenterBG">
+    <image class="touxiang" src="{{userInfo.avatarUrl}}"></image>
+  </view>
+  <view class = "line">
+    <image class="icon" src="/image/user.png"></image>
+    <text >{{userInfo.nickName}}</text>
+  </view>
+
+
+  <button bindtap="loginOut" class="logoutBtn">退出登录</button>
+</view>
